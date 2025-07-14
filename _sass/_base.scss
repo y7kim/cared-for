@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Safira;
+    src: url("../fonts/Safira\ March.ttf");
+}
+
 html,
 body {
     height: 100%;
@@ -11,7 +16,7 @@ body {
 hr {
     border-color: $theme-primary;
     border-width: 3px;
-    max-width: 50px;
+    max-width: 340px;
 }
 
 hr.light {
@@ -21,6 +26,7 @@ hr.light {
 a {
     @include transition-all;
     color: $theme-primary;
+
     &:hover,
     &:focus {
         color: darken($theme-primary, 10%);
@@ -31,13 +37,13 @@ h1,
 h2,
 h3,
 h4,
-h5,
 h6 {
-    @include sans-serif-font;
+    @include safira-font;
+    text-shadow: 1px 1px 1px $theme-secondary;
 }
 
 p {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.5;
     margin-bottom: 20px;
 }
@@ -48,14 +54,42 @@ p {
 
 .bg-dark {
     background-color: $theme-dark;
-    color: white;
+    color: $theme-white;
+}
+
+.bg-secondary {
+    background-color: $theme-secondary;
+    color: $theme-white;
+
+    hr {
+        border-color: $theme-white;
+    }
+}
+
+.bg-tertiary {
+    background-color: $theme-tertiary;
+    color: $theme-white;
+
+    hr {
+        border-color: $theme-white;
+    }
+}
+
+.bg-accent {
+    background-color: $theme-accent;
+    color: $theme-white;
+
+    hr {
+        border-color: $theme-white;
+    }
 }
 
 .text-faded {
-    color: rgba(white, .7);
+    color: rgba(rgb(245, 245, 245), .8);
 }
 
 section {
+    position: relative;
     padding: 100px 0;
 }
 
@@ -72,35 +106,42 @@ aside {
 .navbar-default {
     background-color: white;
     border-color: rgba($theme-dark, .5);
-    @include sans-serif-font;
+    @include safira-font;
     @include transition-all;
+
     .navbar-header .navbar-brand {
-        color: $theme-primary;
-        @include sans-serif-font;
-        font-weight: 700;
-        text-transform: uppercase;
+        color: $theme-tertiary;
+        @include safira-font;
+        font-weight: 400;
+
         &:hover,
         &:focus {
-            color: darken($theme-primary, 10%);
+            color: darken($theme-tertiary, 10%);
         }
     }
+
     .nav {
-        > li {
-            > a,
-            > a:focus {
+        >li {
+
+            >a,
+            >a:focus {
                 text-transform: uppercase;
                 font-weight: 700;
                 font-size: 13px;
-                color: $theme-dark;
+                color: $theme-tertiary;
+
                 &:hover {
-                    color: $theme-primary;
+                    color: darken($theme-tertiary, 10%);
                 }
             }
+
             &.active {
-                > a,
-                > a:focus {
-                    color: $theme-primary !important;
+
+                >a,
+                >a:focus {
+                    color: $theme-tertiary !important;
                     background-color: transparent;
+
                     &:hover {
                         background-color: transparent;
                     }
@@ -108,39 +149,49 @@ aside {
             }
         }
     }
+
     @media (min-width: 768px) {
         background-color: transparent;
         border-color: rgba(white, .3);
+
         .navbar-header .navbar-brand {
-            color: rgba(white, .7);
+            color: white;
+
             &:hover,
             &:focus {
-                color: white;
+                color: rgba($theme-tertiary, .9);
             }
         }
-        .nav > li > a,
-        .nav > li > a:focus {
-            color: rgba(white, .7);
+
+        .nav>li>a,
+        .nav>li>a:focus {
+            color: white;
+
             &:hover {
-                color: white;
+                color: rgba($theme-tertiary, .9);
             }
         }
+
         &.affix {
             background-color: white;
             border-color: rgba($theme-dark, .5);
+
             .navbar-header .navbar-brand {
-                color: $theme-primary;
-                font-size: 14px;
+                color: $theme-tertiary;
+                font-size: 18px;
+
                 &:hover,
                 &:focus {
-                    color: darken($theme-primary, 10%);
+                    color: darken($theme-tertiary, 10%);
                 }
             }
-            .nav > li > a,
-            .nav > li > a:focus {
-                color: $theme-dark;
+
+            .nav>li>a,
+            .nav>li>a:focus {
+                color: $theme-tertiary;
+
                 &:hover {
-                    color: $theme-primary;
+                    color: $theme-secondary;
                 }
             }
         }
@@ -155,14 +206,13 @@ header {
     min-height: auto;
     @include background-cover;
     background-position: center;
-    background-image: url('../img/header.jpg');
-    text-align: center;
     color: white;
+
     .header-content {
         position: relative;
-        text-align: center;
         padding: 100px 15px 100px;
         width: 100%;
+
         .header-content-inner {
             h1 {
                 font-weight: 700;
@@ -170,19 +220,23 @@ header {
                 margin-top: 0;
                 margin-bottom: 0;
             }
+
             hr {
-                margin: 30px auto;
+                margin: 30px auto 30px 0;
             }
+
             p {
-                font-weight: 300;
-                color: rgba(white, .7);
-                font-size: 16px;
-                margin-bottom: 50px;
+                font-weight: 400;
+                color: rgba(white, .8);
+                font-size: 20px;
+                margin-bottom: 25px;
             }
         }
     }
+
     @media (min-width: 768px) {
         min-height: 100%;
+
         .header-content {
             position: absolute;
             top: 50%;
@@ -190,15 +244,15 @@ header {
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
             padding: 0 50px;
+
             .header-content-inner {
                 max-width: 1000px;
                 margin-left: auto;
                 margin-right: auto;
+
                 p {
-                    font-size: 18px;
+                    font-size: 20px;
                     max-width: 80%;
-                    margin-left: auto;
-                    margin-right: auto;
                 }
             }
         }
@@ -214,11 +268,13 @@ header {
 .service-box {
     max-width: 400px;
     margin: 50px auto 0;
+
     @media (min-width: 992px) {
         margin: 20px auto 0;
     }
+
     p {
-        margin-bottom: 0;
+        margin-bottom: 1em;
     }
 }
 
@@ -227,49 +283,57 @@ header {
     display: block;
     max-width: 650px;
     margin: 0 auto;
+
     .portfolio-box-caption {
         color: white;
         opacity: 0;
         display: block;
-        background: rgba( $theme-primary, .9 );
+        background: rgba($theme-primary, .9);
         position: absolute;
         bottom: 0;
         text-align: center;
         width: 100%;
         height: 100%;
         @include transition-all;
+
         .portfolio-box-caption-content {
             width: 100%;
             text-align: center;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
+
             .project-category,
             .project-name {
                 @include sans-serif-font;
                 padding: 0 15px;
             }
+
             .project-category {
                 text-transform: uppercase;
                 font-weight: 600;
                 font-size: 14px;
             }
+
             .project-name {
                 font-size: 18px;
             }
         }
     }
+
     &:hover {
         .portfolio-box-caption {
             opacity: 1;
         }
     }
+
     @media (min-width: 768px) {
         .portfolio-box-caption {
             .portfolio-box-caption-content {
                 .project-category {
                     font-size: 16px;
                 }
+
                 .project-name {
                     font-size: 22px;
                 }
@@ -289,14 +353,14 @@ header {
     color: $theme-primary;
 }
 
-.no-gutter > [class*='col-'] {
-    padding-right:0;
-    padding-left:0;
+.no-gutter>[class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
 }
 
 // Button Styles
 .btn-default {
-    @include button-variant($theme-dark, white, white);
+    @include button-variant(white, $theme-tertiary, $theme-tertiary);
 }
 
 .btn-primary {
@@ -307,6 +371,7 @@ header {
     @include sans-serif-font;
     border: none;
     border-radius: 300px;
+    font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -347,5 +412,125 @@ img::-moz-selection {
 
 body {
     -webkit-tap-highlight-color: $theme-dark;
+    font-size: $body-font-size;
 }
 
+/* Custom */
+#HeaderBackgroundVideo {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    inset: 0 0 0 0;
+    z-index: -1;
+}
+
+#services {
+    * {
+        position: relative;
+        z-index: 100;
+    }
+}
+
+#OfferingsBackgroundVideo {
+    height: 200vh;
+    max-width: 100%;
+    object-fit: cover;
+    position: absolute;
+    margin-top: -100px;
+    z-index: 0;
+}
+
+.branded {
+    @include branded-variant();
+}
+
+.branded-primary {
+    @include branded-variant($theme-primary);
+}
+
+.branded-accent {
+    @include branded-variant($theme-tertiary);
+}
+
+.column-image {
+    width: 60%;
+    filter: drop-shadow(15px 15px $theme-tertiary);
+}
+
+.p-50 {
+    padding-top: 50px;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+/* Accordion */
+.panel-heading .accordion-plus-toggle:before {
+    font-family: FontAwesome;
+    content: "\f068";
+    float: right;
+    color: silver;
+}
+
+.panel-heading .accordion-plus-toggle.collapsed:before {
+    content: "\f067";
+    color: silver;
+}
+
+.panel-heading .accordion-arrow-toggle:before {
+    font-family: FontAwesome;
+    content: "\f078";
+    float: right;
+    color: silver;
+}
+
+.panel-heading .accordion-arrow-toggle.collapsed:before {
+    content: "\f054";
+    color: silver;
+}
+
+.panel {
+    //border: none;
+}
+
+.panel-title>a {
+    display: block;
+}
+
+.panel-default {
+    background-color: transparent;
+    //border-radius: 10px !important;
+}
+
+.panel-default>.panel-heading {
+    background-color: $theme-tertiary;
+    color: $theme-white;
+    //border-radius: 10px;
+    padding: 20px;
+}
+
+.panel-title {
+    @include sans-serif-font();
+    font-weight: 600;
+    font-size: 18px;
+
+    a {
+        color: $theme-white;
+
+        &::before {
+            color: $theme-white !important;
+        }
+    }
+}
+
+.panel-body {
+    //border: none !important;
+    background-color: $theme-white;
+    color: $theme-secondary;
+
+    * {
+        color: $theme-secondary;
+    }
+}
