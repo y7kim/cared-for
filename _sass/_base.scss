@@ -458,8 +458,9 @@ body {
 
 .column-image {
     max-height: 350px;
-    object-fit: contain;
-    margin-bottom: 25px;
+    max-width: 70vw;
+    object-fit: cover;
+    margin-bottom: 50px;
     filter: drop-shadow(15px 15px $theme-tertiary);
 }
 
