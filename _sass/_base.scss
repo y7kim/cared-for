@@ -39,7 +39,7 @@ h3,
 h4,
 h6 {
     @include safira-font;
-    text-shadow: 1px 1px 1px $theme-secondary;
+    //text-shadow: 1px 1px 1px $theme-secondary;
 }
 
 p {
@@ -59,7 +59,7 @@ p {
 
 .bg-secondary {
     background-color: $theme-secondary;
-    color: $theme-white;
+    color: $theme-primary;
 
     hr {
         border-color: $theme-white;
@@ -68,7 +68,7 @@ p {
 
 .bg-tertiary {
     background-color: $theme-tertiary;
-    color: $theme-white;
+    color: $theme-primary;
 
     hr {
         border-color: $theme-white;
@@ -110,13 +110,13 @@ aside {
     @include transition-all;
 
     .navbar-header .navbar-brand {
-        color: $theme-tertiary;
+        color: $theme-primary;
         @include safira-font;
         font-weight: 400;
 
         &:hover,
         &:focus {
-            color: darken($theme-tertiary, 10%);
+            color: darken($theme-primary, 10%);
         }
     }
 
@@ -128,10 +128,10 @@ aside {
                 text-transform: uppercase;
                 font-weight: 700;
                 font-size: 13px;
-                color: $theme-tertiary;
+                color: $theme-primary;
 
                 &:hover {
-                    color: darken($theme-tertiary, 10%);
+                    color: darken($theme-primary, 10%);
                 }
             }
 
@@ -139,7 +139,7 @@ aside {
 
                 >a,
                 >a:focus {
-                    color: $theme-tertiary !important;
+                    color: $theme-primary !important;
                     background-color: transparent;
 
                     &:hover {
@@ -159,7 +159,7 @@ aside {
 
             &:hover,
             &:focus {
-                color: rgba($theme-tertiary, .9);
+                color: rgba($theme-primary, .9);
             }
         }
 
@@ -168,7 +168,7 @@ aside {
             color: white;
 
             &:hover {
-                color: rgba($theme-tertiary, .9);
+                color: rgba($theme-primary, .9);
             }
         }
 
@@ -177,21 +177,21 @@ aside {
             border-color: rgba($theme-dark, .5);
 
             .navbar-header .navbar-brand {
-                color: $theme-tertiary;
+                color: $theme-primary;
                 font-size: 18px;
 
                 &:hover,
                 &:focus {
-                    color: darken($theme-tertiary, 10%);
+                    color: darken($theme-primary, 10%);
                 }
             }
 
             .nav>li>a,
             .nav>li>a:focus {
-                color: $theme-tertiary;
+                color: $theme-primary;
 
                 &:hover {
-                    color: $theme-secondary;
+                    color: rgba($theme-primary, .9);
                 }
             }
         }
@@ -360,7 +360,7 @@ header {
 
 // Button Styles
 .btn-default {
-    @include button-variant(white, $theme-tertiary, $theme-tertiary);
+    @include button-variant(white, $theme-secondary, $theme-tertiary);
 }
 
 .btn-primary {
@@ -511,7 +511,7 @@ body {
 }
 
 .panel-default>.panel-heading {
-    background-color: $theme-tertiary;
+    background-color: $theme-primary;
     color: $theme-white;
     //border-radius: 10px;
     padding: 20px;
@@ -534,9 +534,9 @@ body {
 .panel-body {
     //border: none !important;
     background-color: $theme-white;
-    color: $theme-secondary;
+    color: $theme-primary;
 
     * {
-        color: $theme-secondary;
+        color: $theme-primary;
     }
 }
