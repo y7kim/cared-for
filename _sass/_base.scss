@@ -61,14 +61,18 @@ p {
     background-color: $theme-secondary;
     color: $theme-primary;
 
+    .text-faded {
+        color: rgba($theme-primary, .8);
+    }
+
     hr {
-        border-color: $theme-white;
+        border-color: $theme-primary;
     }
 }
 
 .bg-tertiary {
     background-color: $theme-tertiary;
-    color: $theme-primary;
+    color: $theme-white;
 
     hr {
         border-color: $theme-white;
@@ -85,7 +89,7 @@ p {
 } */
 
 .text-faded {
-    color: rgba(rgb(245, 245, 245), .8);
+    color: rgba($theme-white, .8);
 }
 
 section {
@@ -360,7 +364,7 @@ header {
 
 // Button Styles
 .btn-default {
-    @include button-variant(white, $theme-secondary, $theme-tertiary);
+    @include button-variant(white, $theme-tertiary, $theme-tertiary);
 }
 
 .btn-primary {
@@ -384,7 +388,7 @@ header {
 
 // Contact
 #contact .fa {
-    color: $theme-dark;
+    color: $theme-white;
     font-size: 4em;
 }
 
