@@ -448,8 +448,29 @@ body {
     z-index: 0;
 }
 
-#signup{
+#signup {
     background-color: #b5bf50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.signup-frame {
+    display: block;
+    box-sizing: border-box;
+    width: clamp(320px, 100%, 900px); /* grows with container, respects viewport */
+    max-width: 100%;
+    min-height: 570px; /* raised to accommodate confirmation UI */
+    height: auto;
+    overflow: hidden; /* hide iframe scrollbars on the element */
+    border: 0;
+    margin: 0 auto;
+}
+
+@media (max-width: 360px) {
+    /* relax minimum on very small screens to avoid horizontal scrollbars */
+    .signup-frame { width: 100%; min-width: 0; }
 }
 
 .branded {
