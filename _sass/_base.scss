@@ -448,6 +448,10 @@ body {
     z-index: 0;
 }
 
+#signup{
+    background-color: #b5bf50;
+}
+
 .branded {
     @include branded-variant();
 }
